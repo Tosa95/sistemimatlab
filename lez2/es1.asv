@@ -1,0 +1,20 @@
+clear
+cls
+close all
+
+t = -20:.01:20;
+
+hold on
+grid on
+
+x1 = 4 * myrect ((t-3)/10);
+x2 = 3 * mytri ((t+1)/4);
+x3 = mystep (-t + 2);
+
+plot(t, x1, 'r')
+plot(t, x2, 'y')
+plot(t, x3, 'g')
+
+figure
+
+x4 = 
