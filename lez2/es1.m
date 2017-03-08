@@ -44,3 +44,6 @@ grid on
 
 x10 = 2*mytri(t/2) .* myrect(t/2);
 plot(t, x10, 'b', 'LineWidth',1.3);
+
+x11 = -3 * cos(pi/2*t);
+plot(t, x11, 'r', 'LineWidth',1.3);
