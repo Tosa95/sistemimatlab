@@ -1,0 +1,16 @@
+function x = mysinc(t)
+
+    x = sin(pi*t)./(pi*t);
+    
+    %isnan : 1 se la componente è nan, 0 altrimenti. Ritorna vettore logico
+    %poi lo uso per indicizzare
+    
+    %sum(isnan(x)) qua fa 1: c'è un nan
+    
+    %x(isnan(x))=1;
+    x(t==0)=1;
+    
+    %sum(isnan(x)) qua fa 0: non ci sono più nan
+
+end
+
