@@ -16,3 +16,4 @@ plot (t,step)
 figure
 plot (t,sinc)
 % hold on: permette sovrascrittura figure senza cancellare
+% grid on: accende la griglia
