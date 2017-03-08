@@ -1,10 +1,9 @@
 function x = mysinc(t)
 
+    x = zeros(size(t))
 
-    % x (t ~= 0) è di lunghezza diversa da sin(pi*t)./(pi*t), quindi non
-    % si riesce
-    
-    x = sin(pi*t)./(pi*t);
+    % t ~= 0 mi evita di caclolare il nan, comunque non è obbligatorio
+    x(t ~= 0) = sin(pi*t)./(pi*t);
     
     %isnan : 1 se la componente è nan, 0 altrimenti. Ritorna vettore logico
     %poi lo uso per indicizzare
