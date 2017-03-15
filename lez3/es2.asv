@@ -1,0 +1,7 @@
+clear all;
+close all;
+
+dt=0.00001;
+tmax = 100
+tmin = -100
+t=tmin:dt:tmax;

@@ -1,0 +1,16 @@
+clear all;
+close all;
+dt=0.00001;
+t=-10:dt:10;
+
+in1=myrect(t);
+integrale(in1, dt)
+
+in2=sin(2*pi*t/3);
+integrale(in2,dt)
+
+in3=mytri(t);
+integrale(in3,dt)
+
+
+
