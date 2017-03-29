@@ -1,0 +1,9 @@
+function [out] = T Fourier(x,t,f,dt)
+
+out=ones(1,lenght(f));
+for i= 1:lenght(f)
+    out=myScala
+end
+
+end
+
