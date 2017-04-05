@@ -2,9 +2,9 @@ clear all
 close all
 
 dt = 0.01;
-t = -100:dt:100;
+t = -30:dt:30;
 df=0.01;
-f=-150:df:150;
+f=-35:df:35;
 tau=f;
 
 x1=mysinc(5.*t);
@@ -51,14 +51,14 @@ x4b=cos(10*pi.*t);
 cx4 = zeros(1, length(t));
 
 
-X4A = T_Fourier(mysinc(t), t, f, dt);
+X4A = T_Fourier(mysinc(t).^2, t, f, dt);
 X4B = T_Fourier(x4b, t, f, dt);
 
 for k = 1 : length(tau)
     
    trasl = tau(k);
     
-   cx4(k) = integrale( myshift( X4A , trasl, df)  .*  X4B, dt);
+   cx4(k) = integrale( myshift( X4A , trasl, dt)  .*  X4B, dt);
    
 end
 
@@ -85,7 +85,7 @@ subplot(2,3,6);
 plot(f, angle(cx4));
 
 
-%--------------- FENOMENI DI GIBBS -------------------
+%--------------- FENOMENO DI GIBBS -------------------
 
 fprintf('B=2\n');
 B=2;
