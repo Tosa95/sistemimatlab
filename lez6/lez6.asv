@@ -1,0 +1,95 @@
+clear all
+close all
+
+dt = 0.01;
+t = -10:dt:10;
+df=0.01;
+f=-15:df:15;
+tau=f;
+
+x1=mysinc(5.*t);
+X1=T_Fourier(x1, t, f, dt);
+
+x2=mysinc(5.*(t-1/2));
+X2=T_Fourier(x2, t, f, dt);
+
+x3=mysinc(5.*(t+1));
+X3=T_Fourier(x3, t, f, dt);
+
+subplot(3,3, 1);
+plot(t,x1);
+
+subplot(3,3, 2);
+plot(f,abs(X1));
+
+subplot(3,3, 3);
+plot(f,angle(X1));
+
+subplot(3,3, 4);
+plot(t,x2);
+
+subplot(3,3, 5);
+plot(f,abs(X2));
+
+subplot(3,3, 6);
+plot(f,angle(X2));
+
+subplot(3,3, 7);
+plot(t,x3);
+
+subplot(3,3, 8);
+plot(f,abs(X3));
+
+subplot(3,3, 9);
+plot(f,angle(X3));
+
+x4=(mysinc(t).^2).*cos(10*pi.*t);
+X4=T_Fourier(x4, t, f, dt);
+
+x4a=mysinc(t);
+x4b=cos(10*pi.*t);
+cx4 = zeros(1, length(t));
+
+
+X4A = T_Fourier(mysinc(t), t, f, dt);
+X4B = T_Fourier(x4b, t, f, dt);
+
+for k = 1 : length(tau)
+    
+   trasl = tau(k);
+    
+   cx4(k) = integrale( myshift( X4A , trasl, df)  .*  X4B, dt);
+   
+end
+
+x4Inv = Inv_T_Fourier(cx4, t, f, df);
+
+figure
+
+subplot(2,3,1);
+plot(t, x4);
+
+subplot(2,3,2);
+plot(f, abs(X4));
+
+subplot(2,3,3);
+plot(f, angle(X4));
+
+subplot(2,3,4);
+plot(t, x4Inv);
+
+subplot(2,3,5);
+plot(f, abs(cx4));
+
+subplot(2,3,6);
+plot(f, angle(cx4));
+
+
+%--------------- FENOMENI DI GIBBS -------------------
+
+B=2;
+H = rect(f./(2*B));
+h = 2*B*mysinc(
+
+
+H1 = Fou

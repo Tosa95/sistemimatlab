@@ -2,15 +2,16 @@ function out = myshift( x, t, dt )
 
     steps = floor(t/dt);
     
-    steps
-    length(x)
-    
     if (steps > 0)
        
         out = zeros(1, length(x));
         
         out(1:(length(x)-steps+1)) = x(steps:length(x));
         
+    elseif (steps == 0)
+            
+        out = x;
+    
     else
         
         steps = abs(steps);
