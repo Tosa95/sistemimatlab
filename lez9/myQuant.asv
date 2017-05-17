@@ -1,0 +1,12 @@
+function out = myQuant( x, bits )
+
+    dynamic = max(x) - min(x);
+    
+    delta = dynamic / (2^bits);
+    
+    %out = (ceil(x./delta)-1).*delta + delta/2;
+    
+    out = (ceil(x./delta)).*delta + delta/2;
+
+end
+

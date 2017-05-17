@@ -1,0 +1,34 @@
+close all
+clear all
+
+tmin = -10;
+tmax = 10;
+tduration = tmax - tmin;
+
+dt = 0.01;
+t = tmin:dt:tmax;
+
+x = sin(t)*0.99;
+
+hold on
+plot(t, x);
+plot(t, myQuant(x, 2));
+
+x2 = (1/2)*t.^3 + 5*t.^2 - 2*(t+10).^2 + 20;
+
+
+
+for bits = [2 4 8 16]
+    
+    x2q = myQuant(x2, bits);
+    
+    figure
+    hold on
+    plot(t, x2);
+    plot(t, x2q);
+    plot(t, x2-x2q);
+    
+    disp( sprintf( '%d : %f', bits, integrale(abs(x2-x2q).^2, dt)) )
+    
+end
+
